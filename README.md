@@ -1,5 +1,6 @@
 # Algorithm-Implementations
-Standard implementations of various algorithms in python and/or java. 
+Standard implementations of various algorithms in python and/or java.
+
 
 References : 
 1. Algorithm Design (1st Edition) by Jon Kleinberg and Eva Tardos 2005
