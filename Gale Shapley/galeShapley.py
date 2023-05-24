@@ -4,6 +4,10 @@ Author : Archit Satish Joshi
 Description : Python implementation of Gale-Shapley algorithm for stable
               matching.
 Language : python3
+Revisions :
+v1.0 - Basic algorithm structure
+v1.1 - Moved to class structure
+v1.2 - Testing and Debugging complete
 """
 
 """
@@ -49,16 +53,18 @@ class StableMatching:
 
         n = int(input("Enter total number of men and women : "))
         # preference list for requestor / men
+        print("\nPreference list for requestors")
         for i in range(n):
-            x = input().split()
+            x = input(f"Insert preference list for man {i + 1} : ").split()
             lst = [int(y) for y in x]
-            self.requestors[i] = lst
+            self.requestors[i+1] = lst
 
         # preference list for responder / women
+        print("\nPreference list for responders")
         for i in range(n):
-            y = input().split()
+            y = input(f"Insert preference list for woman {i + 1} :").split()
             lst = [int(x) for x in y]
-            self.responders[i] = lst
+            self.responders[i+1] = lst
 
     def galeShapley(self):
         for requestor in self.requestors.keys():
@@ -86,13 +92,14 @@ class StableMatching:
                 new_idx = self.responders[preference].index(requestor)
 
                 # Case 2 : Current requestor is lower ranked than existing match
-                if new_idx > current_idx:
+                if new_idx < current_idx:
                     # Remove current match and add requestor to free list
-                    self.free.remove(current_match[0])
+                    self.free.append(current_match[0])
                     self.matched.remove(current_match)
 
                     self.free.remove(requestor)
                     self.matched.append([requestor, preference])
+                    break
 
                 # Case 3 : Preference is happy with current match
                 else:
@@ -116,6 +123,7 @@ def main():
     s = StableMatching()
     s.parseInput()
     s.galeShapley()
+    print("\nStable Matching (requestor, responder) : ")
     print(s.matched)
 
 
