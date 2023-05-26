@@ -67,17 +67,34 @@ class StableMatching:
             self.responders[i+1] = lst
 
     def galeShapley(self):
+        """
+        Wrapper function to initiate stable matching using gale shapley
+        algorithm.
+
+        :return: None
+        """
+        # Initially all requestors are free
         for requestor in self.requestors.keys():
             self.free.append(requestor)
 
+        # Continue matching until no requestor is free
         while len(self.free) > 0:
             self._galeShapley(self.free[0])
 
     def _galeShapley(self, requestor):
+        """
+        Gale Shapley algorithm to find a stable matching given requestor and
+        responder preference lists.
+
+        :param requestor: requestor chosen from the pool of free requestors
+        :return: None
+        """
         for preference in self.requestors[requestor]:
             # Case 1: Check if the preference is already matched
             current_match = self.getCurrentMatch(preference)
 
+            # If the current requestor's preference doesnt have a match,
+            # they can be matched
             if not current_match:
                 self.matched.append([requestor, preference])
                 self.free.remove(requestor)
@@ -108,7 +125,8 @@ class StableMatching:
 
     def getCurrentMatch(self, responder):
         """
-        Check if the current responder is already matched to any requestor.
+        Helper function to check if the current responder is already matched to
+        any requestor.
 
         :param responder:
         :return:

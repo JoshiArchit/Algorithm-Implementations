@@ -7,6 +7,6 @@ References :
 2. Introduction to Algorithms, Thomas Cormen 3rd edition
 
 Table of Contents -
-1. Stable Matching Algorithm.
+1. Stable Matching Algorithm (Gale Shapley).
 2. Searching Algorithms.
    
