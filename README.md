@@ -6,5 +6,7 @@ References :
 1. Algorithm Design (1st Edition) by Jon Kleinberg and Eva Tardos 2005
 2. Introduction to Algorithms, Thomas Cormen 3rd edition
 
-Topics -
-1. Stable Matching.
+Table of Contents -
+1. Stable Matching Algorithm.
+2. Searching Algorithms.
+   
