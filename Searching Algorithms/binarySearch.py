@@ -1,7 +1,7 @@
 """
 Filename : binarySearch.py
 Author : Archit Joshi
-Description : Binary Search algorithm implementation. Complexity : O(nlogn)
+Description : Binary Search algorithm implementation. Complexity : O(logn)
 Language : python3
 Revisions :
 v1.0 - Binary search algorithm
